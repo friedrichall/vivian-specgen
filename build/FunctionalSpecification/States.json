@@ -5,27 +5,17 @@
       "Conditions": [
         {
           "Type": "FloatValueVisualization",
-          "VisualizationElement": "Cube_Default",
+          "VisualizationElement": "Rotating_Cube",
           "Value": 1.0
-        },
-        {
-          "Type": "FloatValueVisualization",
-          "VisualizationElement": "Cube_Green",
-          "Value": 0.0
         }
       ]
     },
     {
-      "Name": "touched.state",
+      "Name": "rotating.state",
       "Conditions": [
         {
           "Type": "FloatValueVisualization",
-          "VisualizationElement": "Cube_Default",
-          "Value": 0.0
-        },
-        {
-          "Type": "FloatValueVisualization",
-          "VisualizationElement": "Cube_Green",
+          "VisualizationElement": "Rotating_Cube",
           "Value": 1.0
         }
       ]

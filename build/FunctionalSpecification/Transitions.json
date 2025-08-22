@@ -2,10 +2,10 @@
   "Transitions": [
     {
       "SourceState": "idle.state",
-      "DestinationState": "touched.state"
+      "DestinationState": "rotating.state"
     },
     {
-      "SourceState": "touched.state",
+      "SourceState": "rotating.state",
       "DestinationState": "idle.state"
     }
   ]

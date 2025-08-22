@@ -6,13 +6,13 @@ from specgen.generator import generate_all
 
 def main():
     if OPENAI_API_KEY.startswith("sk-REPLACE_ME"):
-        print("⚠️ Bitte zuerst den OPENAI_API_KEY in settings.py setzen.")
+        print("Bitte zuerst den OPENAI_API_KEY in settings.py setzen.")
         sys.exit(1)
 
     # Read spec
-    spec_path = Path(SPEC_PATH)
+    spec_path =  (Path(__file__).parent / SPEC_PATH).resolve()
     if not spec_path.exists():
-        print(f"❌ Spezifikation nicht gefunden: {spec_path.resolve()}")
+        print(f"Spezifikation nicht gefunden: {spec_path.resolve()}")
         sys.exit(2)
     spec_text = spec_path.read_text(encoding="utf-8")
 
@@ -29,13 +29,13 @@ def main():
     results = generate_all(
         spec_text=spec_text,
         docs_text=docs_text,
-        out_dir=OUT_DIR,
+        out_dir=(Path(__file__).parent / OUT_DIR).resolve(),
         model=MODEL,
         api_key=OPENAI_API_KEY,
         base_url=BASE_URL,
     )
 
-    print("✅ Fertig! Dateien wurden erzeugt in:", Path(OUT_DIR).resolve().parent)
+    print("Fertig! Dateien wurden erzeugt in:", Path(OUT_DIR).resolve().parent)
     print("   - InteractionElements.json")
     print("   - VisualizationElements.json")
     print("   - States.json")

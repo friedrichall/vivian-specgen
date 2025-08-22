@@ -1,0 +1,20 @@
+name: Create a rotatable cube
+objects:
+  Rotating_Cube: Button
+interactions:
+  - type: TouchArea
+    name: CubeRotationTouch
+    plane: {x: 0, y: 0, z: 1}
+    resolution: {x: 256, y: 256}
+states:
+  - name: idle.state
+    show: {Rotating_Cube: 1.0}
+  - name: rotating.state
+    show: {Rotating_Cube: 1.0}
+transitions:
+  - from: idle.state
+    via: {element: CubeRotationTouch, event: TOUCH_START}
+    to: rotating.state
+  - from: rotating.state
+    via: {element: CubeRotationTouch, event: TOUCH_END}
+    to: idle.state

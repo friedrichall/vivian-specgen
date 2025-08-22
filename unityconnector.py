@@ -58,9 +58,14 @@ def generate_spec(description: str, objects: dict[str, str]) -> str:
 def main() -> None:
     description = sys.argv[1] if len(sys.argv) > 1 else ""
     args = sys.argv[2:]
+
+    # Build object_interactions safely even if args length is odd
+    if len(args) % 2 != 0:
+        print("⚠️ Ignoring last argument because object/type pairs are uneven.")
+        args = args[:-1]
     object_interactions = {args[i]: args[i + 1] for i in range(0, len(args), 2)}
 
-    print("Unity Connector:\n______________________________\n")
+    print("Unity Connector Extern:\n______________________________\n")
     print("description:", description)
     for name, element in object_interactions.items():
         print(f"{name}: {element}")
@@ -70,11 +75,20 @@ def main() -> None:
         sys.exit(1)
 
     spec_text = generate_spec(description, object_interactions)
+
+    # --- FIX START: resolve path and ensure directories exist ---
     spec_path = Path(SPEC_PATH)
+    if not spec_path.is_absolute():
+        # make it relative to this script's folder
+        spec_path = (Path(__file__).parent / spec_path).resolve()
+    spec_path.parent.mkdir(parents=True, exist_ok=True)
+    # --- FIX END ---
+
     spec_path.write_text(spec_text, encoding="utf-8")
-    print(f"📄 Spezifikation gespeichert unter: {spec_path.resolve()}")
+    print(f"Spezifikation gespeichert unter: {spec_path}")
 
     run_pipeline()
+
 
 
 if __name__ == "__main__":

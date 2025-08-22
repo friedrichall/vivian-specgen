@@ -1,14 +1,21 @@
 {
   "Elements": [
     {
-      "Type": "AppearingObject",
-      "Name": "Cube_Default",
-      "Value": 1.0
+      "Type": "Button",
+      "Name": "Rotating_Cube"
     },
     {
-      "Type": "AppearingObject",
-      "Name": "Cube_Green",
-      "Value": 0.0
+      "Type": "TouchArea",
+      "Name": "CubeRotationTouch",
+      "Plane": {
+        "x": 0,
+        "y": 0,
+        "z": 1
+      },
+      "Resolution": {
+        "x": 256,
+        "y": 256
+      }
     }
   ]
 }
