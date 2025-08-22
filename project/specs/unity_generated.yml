@@ -1,11 +1,14 @@
-name: Create a rotatable cube
+name: Rotating Cube Interaction
 objects:
-  Rotating_Cube: Button
+  rotating_cube: AppearingObject visible by default
 interactions:
-  - type: TouchArea
-    name: CubeRotationTouch
-    plane: {x: 0, y: 0, z: 1}
-    resolution: {x: 256, y: 256}
+  - type: Rotatable
+    name: Rotating_Cube
+    min_rotation: -90.0
+    max_rotation: 90.0
+    rotation_axis:
+      origin: {x: 0.0, y: 0.0, z: 0.0}
+      direction: {x: 0.0, y: 0.0, z: 1.0}
 states:
   - name: idle.state
     show: {Rotating_Cube: 1.0}
@@ -13,8 +16,8 @@ states:
     show: {Rotating_Cube: 1.0}
 transitions:
   - from: idle.state
-    via: {element: CubeRotationTouch, event: TOUCH_START}
+    via: {element: Rotating_Cube, event: ROTATABLE_DRAG_START}
     to: rotating.state
   - from: rotating.state
-    via: {element: CubeRotationTouch, event: TOUCH_END}
+    via: {element: Rotating_Cube, event: ROTATABLE_DRAG_END}
     to: idle.state

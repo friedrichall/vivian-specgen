@@ -1,20 +1,21 @@
 {
   "Elements": [
     {
-      "Type": "Button",
-      "Name": "Rotating_Cube"
-    },
-    {
-      "Type": "TouchArea",
-      "Name": "CubeRotationTouch",
-      "Plane": {
-        "x": 0,
-        "y": 0,
-        "z": 1
-      },
-      "Resolution": {
-        "x": 256,
-        "y": 256
+      "Type": "Rotatable",
+      "Name": "Rotating_Cube",
+      "MinRotation": -90.0,
+      "MaxRotation": 90.0,
+      "RotationAxis": {
+        "Origin": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "Direction": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 1.0
+        }
       }
     }
   ]
