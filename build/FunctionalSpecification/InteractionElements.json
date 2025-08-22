@@ -1,0 +1,17 @@
+{
+  "Elements": [
+    {
+      "Type": "TouchArea",
+      "Name": "CubeTouch",
+      "Plane": {
+        "x": 0,
+        "y": 0,
+        "z": 1
+      },
+      "Resolution": {
+        "x": 256,
+        "y": 256
+      }
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+name: Cube turns red on touch
+objects:
+  cube_default: AppearingObject visible by default
+  cube_green: AppearingObject hidden by default
+interactions:
+  - type: TouchArea
+    name: CubeTouch
+    plane: {x: 0, y: 0, z: 1}
+    resolution: {x: 256, y: 256}
+states:
+  - name: idle.state
+    show: {Cube_Default: 1.0, Cube_Green: 0.0}
+  - name: touched.state
+    show: {Cube_Default: 0.0, Cube_Green: 1.0}
+transitions:
+  - from: idle.state
+    via: {element: CubeTouch, event: TOUCH_START}
+    to: touched.state
+  - from: touched.state
+    via: {element: CubeTouch, event: TOUCH_END}
+    to: idle.state

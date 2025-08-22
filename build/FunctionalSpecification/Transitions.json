@@ -1,0 +1,12 @@
+{
+  "Transitions": [
+    {
+      "SourceState": "idle.state",
+      "DestinationState": "touched.state"
+    },
+    {
+      "SourceState": "touched.state",
+      "DestinationState": "idle.state"
+    }
+  ]
+}
