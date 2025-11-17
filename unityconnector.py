@@ -293,7 +293,7 @@ def main() -> None:
     # Run the generator directly so we can set out_dir = group-specific FunctionalSpecification
     # Note: generate_all() handles JSON-schema validation + repair loop.
     print("")
-    print("Starte Pipeline zur Generierung der vier JSON-Dateien ...")
+    print("Starte Pipeline zur Generierung der vier JSON-Dateien ....")
     _ = generate_all(
         spec_text=spec_text,
         docs_text=docs_bundle,

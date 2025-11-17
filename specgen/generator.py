@@ -57,6 +57,7 @@ def generate_all(*, spec_text: str, docs_text: str, out_dir: str, model: str, ap
     client = LLMClient(model=model, api_key=api_key, base_url=base_url)
 
     results: Dict[str, Any] = {}
+    print(results)
 
     for filename, schema in FILE_ORDER:
         user = _build_user_prompt(spec_text, docs_text, filename)

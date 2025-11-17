@@ -42,6 +42,8 @@ class LLMClient:
                 messages=messages,
                 temperature=0
             )
+
+
         return resp.choices[0].message.content or "{}"
 
     def generate_json(self, *, system: str, user: str, schema: Dict[str, Any], name: str) -> Dict[str, Any]:
@@ -59,5 +61,6 @@ class LLMClient:
         )
 
         raw = self._chat_json_mode(system, prompt)
+        print("RESPONSE (RAW): \n" + raw)
         text = _strip_code_fences(raw)
         return json.loads(text)
